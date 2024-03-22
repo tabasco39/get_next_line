@@ -6,16 +6,16 @@
 /*   By: aranaivo <aranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:21:52 by aranaivo          #+#    #+#             */
-/*   Updated: 2024/03/16 16:35:22 by aranaivo         ###   ########.fr       */
+/*   Updated: 2024/03/21 07:56:54 by aranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 //get length of string
-int ft_strlen(char *str)
+size_t ft_strlen(char *str)
 {
-    int i;
+    size_t  i;
 
     i = 0;
     while (str[i])
@@ -49,16 +49,16 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = start;
 	j = 0;
-	if (len > ft_strlen((char *)s) - start)
-		len = ft_strlen((char *)s) - start; 
-	if (start >= ft_strlen((char *)s))
+	if (len > ft_strlen((char *)s) - (size_t)start)
+		len = ft_strlen((char *)s) - (size_t)start; 
+	if ((size_t)start >= ft_strlen((char *)s))
 		len = 0;
 	result = (char *)malloc((len + 1) * sizeof(char));
 	if (!result)
 		return (NULL);
 	else
 	{
-		while (j < len && start < ft_strlen((char *)s))
+		while (j < len && (size_t)start < ft_strlen((char *)s))
 		{
 			result[j] = s[i];
 			j++;
@@ -66,7 +66,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		}
 	}
 	result[j] = '\0';
-	return ((char *)result);
+	return (result);
 }
 
 //concatenate string and until the newline character
@@ -101,11 +101,15 @@ int	check_nl(char *str)
 	int	i;
 
     i = 0;
+    // if(str[0] == '\n')
+    // {
+    //     return (0);
+    // }
 	while(str[i])
 	{
 		if (str[i] == '\n')
 			return (i);
 		i++;
 	}
-	return (0);
+	return (-1);
 }

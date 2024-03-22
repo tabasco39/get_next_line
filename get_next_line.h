@@ -6,7 +6,7 @@
 /*   By: aranaivo <aranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:23:24 by aranaivo          #+#    #+#             */
-/*   Updated: 2024/03/16 15:03:13 by aranaivo         ###   ########.fr       */
+/*   Updated: 2024/03/20 09:33:33 by aranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int     ft_strlen(char *str);
+size_t     ft_strlen(char *str);
 char    *ft_join_until_nl(char *dest, char *str);
 char    *ft_strdup(char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int	    check_nl(char *str);
+char *get_next_line(int fd);
+
 
 
 
